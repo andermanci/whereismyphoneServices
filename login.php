@@ -14,6 +14,7 @@
 								   'pdo.password' => $dbopts["pass"]
 							   )
 				);
+				echo "b";
 		}   
 		catch (PDOException $e) {
 			echo "error";
