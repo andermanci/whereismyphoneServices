@@ -6,5 +6,13 @@
 		}
 
 
+		$email=($_GET['email']);
+		echo $email;
+
+		$pass=sha1($_GET['pass']);
+		echo $pass;
+
+        echo "a";
+      
  ?>
 
