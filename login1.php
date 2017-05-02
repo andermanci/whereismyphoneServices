@@ -4,20 +4,14 @@
 			echo "error";
 			exit;
 		}
-		try{
-				$dbopts = parse_url(getenv('DATABASE_URL'));
+
+
 				echo "a";
-				$app->register(new Herrera\Pdo\PdoServiceProvider(),
-							   array(
-								   'pdo.dsn' => 'pgsql:dbname='.ltrim($dbopts["path"],'/').';host='.$dbopts["host"] . ';port=' . $dbopts["port"],
-								   'pdo.username' => $dbopts["user"],
-								   'pdo.password' => $dbopts["pass"]
-							   )
-				);
+                $DataBase = pg_connect("host=ec2-79-125-125-97.eu-west-1.compute.amazonaws.com port=5432 dbname=d32n963hbr8ngb user=ofwsfkgedzztju password=fbd2eab314bba2b3c81cd727730947c9ef5445f01bb2542821a124b2c99b4f98");
 				echo "b";
-		}   
-		catch (PDOException $e) {
-			echo "error";
+
+		if (!$DataBase) {
+			echo "error1";
 			exit;
 		 }
 		$email=($_GET['email']);
@@ -25,17 +19,19 @@
 
 		$pass=sha1.($_GET['pass']);
 		echo $pass;
-		$query = $pdo->prepare("Select * from users where email= '" . $email . "' and password= '" . $pass . "' ;" );
-		if($query->execute()){
-			    if ($row = $query->fetch(PDO::FETCH_ASSOC)){
-					echo $row['id'] ;       
-				}
-				else{
-					echo "error";
-				}			
+		$query="Select * from users where email= '" . $email . "' and password= '" . $pass . "' ;" ;
+        $result=pg_query($DataBase, $query);
+		if(!$result){
+			$select =pg_fetch_array( $result );
+			echo $select[0];
 		}
 		else{
-			echo "error";
+			echo "error2";
+		}
+		pg_close($DataBase);
+		}
+		else{
+			echo "error3";
 		}
 		
 ?>
