@@ -6,7 +6,6 @@
 		}
 
 
-
 		$email=($_GET['email']);
 		echo $email;
 
@@ -14,28 +13,17 @@
 		echo $pass;
 
         echo "a";
-        $DataBase = pg_connect("host=ec2-79-125-125-97.eu-west-1.compute.amazonaws.com port=5432 dbname=d32n963hbr8ngb user=ofwsfkgedzztju password=fbd2eab314bba2b3c81cd727730947c9ef5445f01bb2542821a124b2c99b4f98");
-         echo "b";
+        $DataBase ="host=ec2-79-125-125-97.eu-west-1.compute.amazonaws.com;dbname=d32n963hbr8ngb;user=ofwsfkgedzztju;port=5432;sslmode=require;password=fbd2eab314bba2b3c81cd727730947c9ef5445f01bb2542821a124b2c99b4f98;";
+        $db = new PDO($DataBase);
+        $query="Select * from users where email= '" . $email . "' and password= '" . $pass . "' ;" ;
+        $result = $db->query($query);
+        $row = $result->fetch(PDO::FETCH_ASSOC)
+         if($row){
+            echo $row["id"];
+        }
+        else{
+             echo "error1";
+        }
+        $result->closeCursor();
+ ?>
 
-		if (!$DataBase) {
-			echo "error1";
-			exit;
-		 }
-
-		$query="Select * from users where email= '" . $email . "' and password= '" . $pass . "' ;" ;
-        $result=pg_query($DataBase, $query);
-		if(!$result){
-			$select =pg_fetch_array( $result );
-			echo $select[0];
-		}
-		else{
-			echo "error2";
-		}
-		pg_close($DataBase);
-		}
-		else{
-			echo "error3";
-		}
-
-		
-?>
