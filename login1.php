@@ -6,14 +6,15 @@
 		}
 
 
-				echo "a";
-                $DataBase = pg_connect("host=ec2-79-125-125-97.eu-west-1.compute.amazonaws.com port=5432 dbname=d32n963hbr8ngb user=ofwsfkgedzztju password=fbd2eab314bba2b3c81cd727730947c9ef5445f01bb2542821a124b2c99b4f98");
-				echo "b";
+		echo "a";
+        $DataBase = pg_connect("host=ec2-79-125-125-97.eu-west-1.compute.amazonaws.com port=5432 dbname=d32n963hbr8ngb user=ofwsfkgedzztju password=fbd2eab314bba2b3c81cd727730947c9ef5445f01bb2542821a124b2c99b4f98");
+		echo "b";
 
 		if (!$DataBase) {
 			echo "error1";
 			exit;
 		 }
+		 
 		$email=($_GET['email']);
 		echo $email;
 
