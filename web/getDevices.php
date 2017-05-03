@@ -19,6 +19,6 @@
          echo "b";
          $sth=$dbh->prepare($sql);
          $sth->execute();
-         $result = $sth->fetchAll();
+         $result = $sth->fetchAll(PDO::FETCH_ASSOC);
          print_r($result);
 ?>
