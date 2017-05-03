@@ -15,7 +15,7 @@
         $pass=sha1($_GET['pass']);
         echo $pass;
 
-        $solution = $pdo->query("Select * from users where email= '" . $email . "' and password= '" . $pass . "' ;" );
+        $solution = $pdo->query("Select * from users where email= '" . $email . "' and password= '" . $pass . "'" );
 echo "error1";
 
         if($solution){
