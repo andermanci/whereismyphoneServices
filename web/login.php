@@ -10,14 +10,15 @@
 
 
 		$email=($_GET['email']);
-        echo $email;
+       // echo $email;
 
         $pass=sha1($_GET['pass']);
-        echo $pass;
+       // echo $pass;
+
 
         //$solution = $pdo->query("Select * from users where email= '" . $email . "' and password= '" . $pass . "'" );
       //   $solution = $pdo->query("Select * from users " );
-echo "error1";
+        echo "error1";
 
        // if($solution){
        // echo "erro2";
@@ -31,7 +32,8 @@ echo "error1";
         //	echo "error";
         //}
 
-         $sql = 'SELECT email FROM users';
+
+         $sql = "Select * from users where email= '" . $email . "' and password= '" . $pass . "' ";
             foreach ($dbh->query($sql) as $row) {
                 print $row['email'] . "\t";
             }
