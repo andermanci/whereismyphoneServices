@@ -15,18 +15,24 @@
         $pass=sha1($_GET['pass']);
         echo $pass;
 
-        $solution = $pdo->query("Select * from users where email= '" . $email . "' and password= '" . $pass . "'" );
+        //$solution = $pdo->query("Select * from users where email= '" . $email . "' and password= '" . $pass . "'" );
+      //   $solution = $pdo->query("Select * from users " );
 echo "error1";
 
-        if($solution){
-        echo "erro2";
-        	while($row = $solution->fetch())
-                    {
-                        echo $row['id'] . "\n";
-                    }
+       // if($solution){
+       // echo "erro2";
+        //	while($row = $solution->fetch())
+          //          {
+            //            echo $row['id'] . "\n";
+              //      }
 
-        }
-        else{
-        	echo "error";
-        }
+       // }
+        //else{
+        //	echo "error";
+        //}
+
+         $sql = 'SELECT email FROM users';
+            foreach ($dbh->query($sql) as $row) {
+                print $row['email'] . "\t";
+            }
 ?>
