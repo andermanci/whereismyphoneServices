@@ -14,8 +14,8 @@
 
 
 
-         $statement=$dbh->prepare("SELECT * FROM devices");
-         $statement->execute();
+         $statement=$dbh->prepare("SELECT * FROM devices where user_id = ? ");
+         $statement->execute(array($id));
          $results=$statement->fetchAll(PDO::FETCH_ASSOC);
          $json=json_encode($results);
          echo $json;
