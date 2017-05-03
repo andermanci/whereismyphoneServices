@@ -16,30 +16,17 @@
        // echo $pass;
 
 
-        //$solution = $pdo->query("Select * from users where email= '" . $email . "' and password= '" . $pass . "'" );
-      //   $solution = $pdo->query("Select * from users " );
-        echo "error1";
-
-       // if($solution){
-       // echo "erro2";
-        //	while($row = $solution->fetch())
-          //          {
-            //            echo $row['id'] . "\n";
-              //      }
-
-       // }
-        //else{
-        //	echo "error";
-        //}
 
 
          $sql = "Select * from users where email= '" . $email . "' and password= '" . $pass . "' ";
          $users=$dbh->query($sql);
-         if(!$users){
-            echo "error";
-            exit;
-         }
+         $i=0;
             foreach ($users as $row) {
+            $i=$i + 1;
                 echo $row['id'];
+            }
+            if($i==0){
+                echo "error";
+            	exit;
             }
 ?>
