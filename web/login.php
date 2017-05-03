@@ -7,7 +7,7 @@
 		try{
 				echo "a";
 		$pdo = $app['pdo'];
-		
+
 		$email=($_GET['email']);
         		echo $email;
 
