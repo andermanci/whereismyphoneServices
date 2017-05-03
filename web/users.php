@@ -22,7 +22,7 @@ echo $dbpassword . " - passwd<br>";
 */
 $dsn = "pgsql:host=" . $dbhost . ";dbname=" . $dbname . ";user=" . $dbuser . ";port=" . $dbport . ";sslmode=require;password=" . $dbpassword . ";";
 $db = new PDO($dsn);
-$query = "SELECT * FROM table;";
+$query = "SELECT * FROM users;";
 $result = $db->query($query);
 while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
     echo "<tr>";
