@@ -15,7 +15,7 @@
 
 
 
-         $sql = "Select * from device  ";
+         $sql = "Select * from devices  ";
          echo "b";
          $result = $dbh->query($sql)->fetchAll(PDO::FETCH_ASSOC);
          $json=json_encode($results);
