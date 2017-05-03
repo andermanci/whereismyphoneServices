@@ -16,14 +16,15 @@
         echo $pass;
 
         $solution = $pdo->query("Select * from users where email= '" . $email . "' and password= '" . $pass . "' ;" );
-
+echo "error1";
 
         if($solution){
+        echo "erro2";
         	while($row = $solution->fetch())
                     {
                         echo $row['id'] . "\n";
                     }
-        	
+
         }
         else{
         	echo "error";
