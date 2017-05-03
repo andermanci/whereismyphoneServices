@@ -17,7 +17,8 @@
 
          $sql = "Select * from device where users_id= '" . $id . "' ";
          echo "b";
-         $devices=$dbh->query($sql)->fetchAll(PDO::FETCH_ASSOC);
-         echo "c";
-         echo json_encode($devices);
+         $sth=$dbh->prepare($sql);
+         $sth->execute();
+         $result = $sth->fetchAll();
+         print_r($result);
 ?>
