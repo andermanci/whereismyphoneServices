@@ -34,7 +34,12 @@
 
 
          $sql = "Select * from users where email= '" . $email . "' and password= '" . $pass . "' ";
-            foreach ($dbh->query($sql) as $row) {
-                print $row['email'] . "\t";
+         $users=$dbh->query($sql);
+         if(!$users){
+            echo "error";
+            exit;
+         }
+            foreach ($users as $row) {
+                echo $row['id'];
             }
 ?>
