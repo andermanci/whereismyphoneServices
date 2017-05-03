@@ -15,7 +15,7 @@
 
 
 
-         $sql = "Select * from device where users_id= '" . $id . "' ";
+         $sql = "Select * from device  ";
          echo "b";
          $sth=$dbh->prepare($sql);
          $sth->execute();
