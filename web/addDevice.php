@@ -14,11 +14,17 @@
 		$info=($_GET['info']);
 		$token=($_GET['token']);
 
-        $sql = "INSERT into devices values ('null' , '" . $id . "' , '" . $token . "' , '" . $name . "' , '" . $info . "' )";
-        $insert=$dbh->query($sql);
+        $sql= "Select max(id) from devices ";
+        $max=$dbh->query($sql);
+        
+        echo $max;
+
+
+        $sql1 = "INSERT into devices values ('" . $max . "' , '" . $id . "' , '" . $token . "' , '" . $name . "' , '" . $info . "' )";
+        $insert=$dbh->query($sql1);
          if($insert){
-            $sql= "Select * from devices where user_id= '" . $id . "' and token= '" . $token . "' ";
-            $devices=$dbh->query($sql);
+            $sql2= "Select * from devices where user_id= '" . $id . "' and token= '" . $token . "' ";
+            $devices=$dbh->query($sql2);
             $i=0;
             foreach ($devices as $row) {
                 $i=$i + 1;
