@@ -14,13 +14,13 @@
 		$info=($_GET['info']);
 		$token=($_GET['token']);
 
-        $sql= "Select max(id) from devices ";
-        $max=$dbh->query($sql);
-        
-        echo $max;
+        $sql = "SELECT MAX(id) + 1 FROM devices";
+        $statement = $db->prepare($sql);
+        $statement->execute(); // no need to add `$sql` here, you can take that out
+        $device_id = $statement->fetchColumn();
+echo $device_id;
 
-
-        $sql1 = "INSERT into devices values ('" . $max . "' , '" . $id . "' , '" . $token . "' , '" . $name . "' , '" . $info . "' )";
+        $sql1 = "INSERT into devices values ('" . $device_id . "' , '" . $id . "' , '" . $token . "' , '" . $name . "' , '" . $info . "' )";
         $insert=$dbh->query($sql1);
          if($insert){
             $sql2= "Select * from devices where user_id= '" . $id . "' and token= '" . $token . "' ";
