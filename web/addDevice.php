@@ -15,25 +15,15 @@
 		$token=($_GET['token']);
 
         $sql = "SELECT MAX(id) + 1 FROM devices";
-        $statement = $db->prepare($sql);
+        $statement = $dbh->prepare($sql);
         $statement->execute(); // no need to add `$sql` here, you can take that out
         $device_id = $statement->fetchColumn();
-echo $device_id;
+        echo $device_id;
 
         $sql1 = "INSERT into devices values ('" . $device_id . "' , '" . $id . "' , '" . $token . "' , '" . $name . "' , '" . $info . "' )";
         $insert=$dbh->query($sql1);
          if($insert){
-            $sql2= "Select * from devices where user_id= '" . $id . "' and token= '" . $token . "' ";
-            $devices=$dbh->query($sql2);
-            $i=0;
-            foreach ($devices as $row) {
-                $i=$i + 1;
-                 echo $row['id'];
-            }
-             if($i==0){
-                   echo "error1";
-                   exit;
-             }
+            echo $device_id;
          }
          else{
             echo "error2";
