@@ -1,6 +1,6 @@
 <?php
 
-		if( !(isset($_GET['id']) and !(isset($_GET['name']) and !(isset($_GET['info']) and !(isset($_GET['token']) )){
+		if( !(isset($_GET['id'])) and !(isset($_GET['name'])) and !(isset($_GET['info'])) and !(isset($_GET['token'])) ){
 			echo "error";
 			exit;
 		}
@@ -25,7 +25,7 @@
                  echo $row['id'];
             }
              if($i==0){
-                         echo "error";
+                   echo "error";
                    exit;
              }
          }
