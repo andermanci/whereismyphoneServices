@@ -14,7 +14,7 @@
 		$info=($_GET['info']);
 		$token=($_GET['token']);
 
-        $sql = "INSERT into devices values ('null' , '" . $id . "' , '" . $name . "' , '" . $info . "' , '" . $token . "')";
+        $sql = "INSERT into devices values ('null' , '" . $id . "' , '" . $token . "' , '" . $name . "' , '" . $info . "' )";
         $insert=$dbh->query($sql);
          if($insert){
             $sql= "Select * from devices where user_id= '" . $id . "' and token= '" . $token . "' ";
@@ -25,12 +25,13 @@
                  echo $row['id'];
             }
              if($i==0){
-                   echo "error";
+                   echo "error1";
                    exit;
              }
          }
          else{
-            echo "error";
+            echo "error2";
+            echo $insert;
          }
 
          //$statement=$dbh->prepare("SELECT * FROM devices where user_id = ? ");
