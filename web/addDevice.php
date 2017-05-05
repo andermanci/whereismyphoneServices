@@ -18,7 +18,6 @@
         $statement = $dbh->prepare($sql);
         $statement->execute(); // no need to add `$sql` here, you can take that out
         $device_id = $statement->fetchColumn();
-        echo $device_id;
 
         $sql1 = "INSERT into devices values ('" . $device_id . "' , '" . $id . "' , '" . $token . "' , '" . $name . "' , '" . $info . "' )";
         $insert=$dbh->query($sql1);
@@ -26,7 +25,7 @@
             echo $device_id;
          }
          else{
-            echo "error2";
+            echo "error";
             echo $insert;
          }
 
