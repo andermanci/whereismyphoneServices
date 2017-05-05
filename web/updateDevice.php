@@ -11,7 +11,8 @@
 
 		$id=($_GET['id']);
 		$token=($_GET['token']);
-
+         echo $id;
+         echo $token;
 
         $sql1 = "UPDATE devices set token= '". $token . "' where id= '" . $id . "' )";
         $insert=$dbh->query($sql1);
