@@ -14,7 +14,7 @@
          echo $id;
          echo $token;
 
-        $sql1 = "UPDATE devices set token= '". $token . "' where id= '" . $id . "' )";
+        $sql1 = "UPDATE devices set token= '". $token . "' where id= '" . $id . "' ";
         echo $sql1;
         $insert=$dbh->query($sql1);
          if($insert){
