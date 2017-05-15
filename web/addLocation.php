@@ -17,14 +17,14 @@
         $statement = $dbh->prepare($sql);
         $statement->execute(); // no need to add `$sql` here, you can take that out
         $loc_id = $statement->fetchColumn();
-        echo $loc_id;
+
         $sql1 = "INSERT into locations values ('" . $loc_id . "' , '" . $id . "' , '" . $long . "' , '" . $lat . "', CURRENT_TIMESTAMP , CURRENT_TIMESTAMP )";
         $insert=$dbh->query($sql1);
          if($insert){
             echo $loc_id;
          }
          else{
-            echo "error2";
+            echo "error";
             echo $insert;
          }
 
