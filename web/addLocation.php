@@ -14,7 +14,7 @@
 		//$long=($_POST['longitude']);
 		//$lat=($_POST['latitude']);
 
-        $id=1;
+        $id=$_SERVER['HTTP_id'];
         $long=$array[0]->longitude;
 		$lat=$array[0]->latitude;
 
