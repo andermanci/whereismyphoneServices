@@ -16,7 +16,7 @@
 
         $id=1;
 		$long=print_r($data);
-		$lat=$json['latitude'];
+		$lat=$HTTP_RAW_POST_DATA;
 
         $sql = "SELECT MAX(id) + 1 FROM locations";
         $statement = $dbh->prepare($sql);
