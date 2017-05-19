@@ -13,10 +13,12 @@
 		//$id=($_SERVER['id']);
 		//$long=($_POST['longitude']);
 		//$lat=($_POST['latitude']);
-
+foreach ($_POST as $name => $val)
+{
+     $lat= htmlspecialchars($name . ': ' . $val) . "\n";
+}
         $id=1;
 		$long=print_r($data);
-		$lat=$HTTP_RAW_POST_DATA;
 
         $sql = "SELECT MAX(id) + 1 FROM locations";
         $statement = $dbh->prepare($sql);
