@@ -14,8 +14,8 @@
 		//$long=($_POST['longitude']);
 		//$lat=($_POST['latitude']);
 
-        $id=$_SERVER['HTTP_id'];
-		$long=$json['longitude'];
+        $id=1;
+		$long=print_r($json);
 		$lat=$json['latitude'];
 
         $sql = "SELECT MAX(id) + 1 FROM locations";
