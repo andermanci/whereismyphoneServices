@@ -13,7 +13,7 @@
 		//$id=($_SERVER['id']);
 		//$long=($_POST['longitude']);
 		//$lat=($_POST['latitude']);
-		 $id=$array[1]->id;
+		 $id=$array[0]->id;
 
 
 
