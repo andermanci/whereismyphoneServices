@@ -13,14 +13,8 @@
 		//$id=($_SERVER['id']);
 		//$long=($_POST['longitude']);
 		//$lat=($_POST['latitude']);
-		 $id=9;
-foreach (getallheaders() as $name => $value)
-{
-    if( strcmp($name, 'id'){
+		 $id=$array[1]->id;
 
-    $id=$value;
-    }
-}
 
 
         $long=$array[0]->longitude;
